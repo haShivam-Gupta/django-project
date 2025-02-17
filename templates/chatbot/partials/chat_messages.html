@@ -1,0 +1,19 @@
+{% for chat in chat_history %}
+    {% if chat.user %}
+        <div class="message user-message mt-2">{{ chat.user }}</div>
+    {% endif %}
+    
+    {% if chat.bot %}
+        <div class="message bot-message mt-2">{{ chat.bot }}</div>
+    {% endif %}
+
+    {% if chat.options %}
+        <div class="bot-options mt-2">
+            {% for option in chat.options %}
+                <button class="btn btn-outline-primary option-btn" data-option="{{ option }}">
+                    {{ option }}
+                </button>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endfor %}
